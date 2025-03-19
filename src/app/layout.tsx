@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import { ibmPlexMono, montserrat, spaceGrotesk } from './utils/fonts'
+import { Toaster } from '@/components/ui/sonner'
 
 export const metadata: Metadata = {
   title: 'e-Dashboard',
@@ -16,9 +17,10 @@ export default function RootLayout({
     <html lang="pt-BR">
       <body
         suppressHydrationWarning
-        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${montserrat.variable} antialiased`}
+        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${montserrat.variable} bg-prim-4 antialiased`}
       >
         {children}
+        <Toaster richColors />
       </body>
     </html>
   )
