@@ -4,7 +4,7 @@ import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
 import { redirect } from 'next/navigation'
 
-export async function signOut() {
+export async function logout() {
   const supabase = await createClient()
 
   try {

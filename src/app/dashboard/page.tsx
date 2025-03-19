@@ -5,9 +5,5 @@ export default async function PrivatePage() {
   const { data } = await supabase.auth.getUser()
 
   if (!data || !data.user) return null
-  return (
-    <div>
-      Hello {data.user.email}
-    </div>
-  )
+  return <main>Hello {data.user.email}</main>
 }
