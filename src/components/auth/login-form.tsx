@@ -52,7 +52,7 @@ export default function LoginForm() {
       </div>
       <div className="flex self-end gap-4">
         <Link href="/login/cadastrar" className="text-base-4 font-data text-xs underline self-start hover:text-prim-3">
-          Ainda nao tem uma conta? Cadastre-se
+          Ainda não tem uma conta? Cadastre-se
         </Link>
         <FormButton />
       </div>
