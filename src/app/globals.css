@@ -1,1 +1,19 @@
 @import 'tailwindcss';
+
+@theme {
+  --color-prim-1: #74f4e8;
+  --color-prim-2: #48e5d7;
+  --color-prim-3: #2ec4b6;
+  --color-prim-4: #158d82;
+  --color-base-1: #f3eff8;
+  --color-base-2: #c2bfc6;
+  --color-base-3: #918d95;
+  --color-base-4: #544f55;
+  --color-base-5: #322f33;
+  --color-success: #44ff11;
+  --color-error: #bf2828;
+  --color-warning: #ebb112;
+  --font-title: 'var(--font-title)';
+  --font-data: 'var(--font-data)';
+  --font-body: 'var(--font-body)';
+}
