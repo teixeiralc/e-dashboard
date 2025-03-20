@@ -27,9 +27,9 @@ export default function SideMenu() {
 
   return (
     <section className="container">
-      <div className="mt-8 bg-base-1 p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)]">
+      <div className="mt-8 bg-base-1 p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)] drop-shadow-2xl">
         <div className="self-center">
-          <h1 className="font-title color-base-5 text-4xl drop-shadow-md">e-Dashboard</h1>
+          <h1 className="font-title text-base-5 text-4xl drop-shadow-md">e-Dashboard</h1>
         </div>
         <Separator className="my-4 drop-shadow-md" />
         <nav className="flex-[1]">
