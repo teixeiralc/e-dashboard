@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import WidgetCard from './ui/widget-card'
 import { Popover, PopoverContent, PopoverTrigger } from './ui/popover'
 import { Button } from './ui/button'
@@ -10,14 +10,20 @@ import { ptBR } from 'date-fns/locale'
 import { Calendar } from './ui/calendar'
 import { cn } from '@/lib/utils'
 import { DateRange } from 'react-day-picker'
+import { useRouter, useSearchParams } from 'next/navigation'
 
 export default function DashboardDateFilter() {
   const today = new Date()
+  const router = useRouter()
+  const searchParams = useSearchParams()
 
   const [date, setDate] = useState<DateRange | undefined>({
-    from: new Date(today.getFullYear(), today.getMonth(), today.getDate() - 7),
+    from: new Date(today.getFullYear(), today.getMonth(), today.getDate() - 30),
     to: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
   })
+
+  const [paramsStartDate, setParamsStartDate] = useState<string | undefined>(searchParams.get('startDate') || '')
+  const [paramsEndDate, setParamsEndDate] = useState<string | undefined>(searchParams.get('endDate') || '')
 
   function updateSearchDate(days: number) {
     setDate({
@@ -25,6 +31,14 @@ export default function DashboardDateFilter() {
       to: new Date(today.getFullYear(), today.getMonth(), today.getDate()),
     })
   }
+
+  useEffect(() => {
+    if (date) {
+      setParamsStartDate(date?.from?.toISOString().split('T')[0])
+      setParamsEndDate(date?.to?.toISOString().split('T')[0])
+    }
+    router.push(`?startDate=${paramsStartDate}&endDate=${paramsEndDate}`)
+  }, [date, paramsEndDate, paramsStartDate, router])
 
   return (
     <WidgetCard className="flex flex-col gap-6">

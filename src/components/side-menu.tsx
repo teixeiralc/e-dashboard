@@ -12,6 +12,7 @@ import VendaIcon from './ui/svg-icons/venda-icon'
 import { usePathname } from 'next/navigation'
 import { logout } from '@/actions/logout'
 import { toast } from 'sonner'
+import { cn } from '@/lib/utils'
 
 export default function SideMenu() {
   const pathname = usePathname()
@@ -37,9 +38,10 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
-                  pathname.endsWith('dashboard') && 'text-teal-800'
-                }`}
+                className={cn(
+                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  pathname === '/dashboard' && 'text-teal-800',
+                )}
               >
                 <DashboardIcon /> Dashboard
               </Link>
@@ -47,9 +49,10 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/produtos'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
-                  pathname.endsWith('produtos') && 'text-teal-800'
-                }`}
+                className={cn(
+                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  pathname.includes('/dashboard/produtos') && 'text-teal-800',
+                )}
               >
                 <ProdutosIcon /> Produtos
               </Link>
@@ -57,9 +60,10 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/vendas'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
-                  pathname.endsWith('vendas') && 'text-teal-800'
-                }`}
+                className={cn(
+                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  pathname.includes('/dashboard/vendas') && 'text-teal-800',
+                )}
               >
                 <VendaIcon /> Vendas
               </Link>
@@ -67,9 +71,10 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/estatisticas'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
-                  pathname.endsWith('estatisticas') && 'text-teal-800'
-                }`}
+                className={cn(
+                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  pathname.includes('/dashboard/estatisticas') && 'text-teal-800',
+                )}
               >
                 <EstatisticasIcon /> Estatísticas
               </Link>
@@ -77,9 +82,10 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/configurar'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
-                  pathname.endsWith('configurar') && 'text-teal-800'
-                }`}
+                className={cn(
+                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  pathname.includes('/dashboard/configurar') && 'text-teal-800',
+                )}
               >
                 <SettingsIcon /> Configurações
               </Link>
