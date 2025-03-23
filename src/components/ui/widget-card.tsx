@@ -1,5 +1,6 @@
 import { cn } from '@/lib/utils'
 import { HTMLAttributes, ReactNode } from 'react'
+import StatusBullet from './status-bullet'
 
 type TCardProps = HTMLAttributes<HTMLDivElement> & {
   className?: string
@@ -9,8 +10,6 @@ type TCardProps = HTMLAttributes<HTMLDivElement> & {
 }
 
 export default function WidgetCard({ className, children = '', legend, statusColor, ...props }: TCardProps) {
-  statusColor = 'bg-' + statusColor
-
   return (
     <div
       className={cn(
@@ -20,9 +19,9 @@ export default function WidgetCard({ className, children = '', legend, statusCol
       {...props}
     >
       {children}
-      {legend && (
+      {legend && statusColor && (
         <div className="absolute right-2 bottom-2 flex items-center justify-center gap-1">
-          <div className={`h-1.5 w-1.5 rounded-full ${statusColor}`} />
+          <StatusBullet status={statusColor} />
           <h3 className="font-data text-zinc-900 uppercase text-mono tracking-tight ">{legend}</h3>
         </div>
       )}
