@@ -3,7 +3,7 @@ import DashboardDateFilter from '@/components/dashboard-date-filter'
 import BaseCard from '@/components/ui/base-card'
 import WidgetCard from '@/components/ui/widget-card'
 
-export default async function PrivatePage() {
+export default async function DashboardPage() {
   return (
     <main className="container">
       <section>

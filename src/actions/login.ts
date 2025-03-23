@@ -44,6 +44,20 @@ export async function signup(state: object, formData: FormData) {
     const { error } = await supabase.auth.signUp(data)
 
     if (error) throw new Error(error.message)
+
+    const {
+      data: { user },
+    } = await supabase.auth.getUser()
+
+    if (user  ) {
+      const { error: insertError } = await supabase.from('stores').insert([
+        {
+          user_id: user.id,
+          name: `Loja do  ${user.email}`,
+        },
+      ])
+      if (insertError) throw new Error(`Error creating store: ${insertError.message}`)
+    }
   } catch (error) {
     return actionError(error)
   }
