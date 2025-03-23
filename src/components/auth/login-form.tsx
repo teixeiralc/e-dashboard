@@ -12,7 +12,7 @@ import { toast } from 'sonner'
 function FormButton() {
   const { pending } = useFormStatus()
   const className =
-    'bg-prim-4 text-prim-1 font-body uppercase font-bold text-base hover:bg-prim-1 hover:text-prim-4 drop-shadow-md'
+    'bg-zinc-800 text-teal-400 font-body uppercase font-bold text-base hover:text-zinc-100 drop-shadow-md'
 
   return pending ? (
     <Button className={className} disabled={pending}>
@@ -34,7 +34,7 @@ export default function LoginForm() {
     if (state.error !== '') {
       toast.error(state.error)
     }
-  }, [state.error])
+  }, [state])
 
   return (
     <form action={action} className="flex flex-col gap-4 w-80">
@@ -42,16 +42,19 @@ export default function LoginForm() {
         <Label htmlFor="email" className="mb-1">
           E-mail -
         </Label>
-        <Input type="email" id="email" name="email" required />
+        <Input type="email" id="email" name="email" required placeholder="admin@email" />
       </div>
       <div>
         <Label htmlFor="password" className="mb-1">
           Senha -
         </Label>
-        <Input type="password" id="password" name="password" required />
+        <Input type="password" id="password" name="password" required placeholder="@admin" />
       </div>
       <div className="flex self-end gap-4">
-        <Link href="/login/cadastrar" className="text-base-4 font-data text-xs underline self-start hover:text-prim-3">
+        <Link
+          href="/login/cadastrar"
+          className="text-zinc-500 font-data text-xs underline self-start hover:text-teal-600"
+        >
           Ainda não tem uma conta? Cadastre-se
         </Link>
         <FormButton />

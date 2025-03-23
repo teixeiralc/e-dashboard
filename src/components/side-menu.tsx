@@ -27,18 +27,18 @@ export default function SideMenu() {
 
   return (
     <section className="container">
-      <div className="mt-8 bg-base-1 p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)] drop-shadow-2xl">
+      <div className="mt-8 bg-zinc-100 p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)] drop-shadow-2xl">
         <div className="self-center">
-          <h1 className="font-title text-base-5 text-4xl drop-shadow-md">e-Dashboard</h1>
+          <h1 className="font-title text-zinc-900 text-4xl drop-shadow-md">e-Dashboard</h1>
         </div>
-        <Separator className="my-4 drop-shadow-md" />
+        <Separator className="my-4 drop-shadow-md bg-zinc-300" />
         <nav className="flex-[1]">
           <ul className="flex flex-col items-start gap-4">
             <li>
               <Link
                 href={'/dashboard'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-base-5 hover:text-prim-4 ${
-                  pathname.endsWith('dashboard') && 'text-prim-4'
+                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
+                  pathname.endsWith('dashboard') && 'text-teal-800'
                 }`}
               >
                 <DashboardIcon /> Dashboard
@@ -47,8 +47,8 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/produtos'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-base-5 hover:text-prim-4 ${
-                  pathname.endsWith('produtos') && 'text-prim-4'
+                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
+                  pathname.endsWith('produtos') && 'text-teal-800'
                 }`}
               >
                 <ProdutosIcon /> Produtos
@@ -57,8 +57,8 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/vendas'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-base-5 hover:text-prim-4 ${
-                  pathname.endsWith('vendas') && 'text-prim-4'
+                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
+                  pathname.endsWith('vendas') && 'text-teal-800'
                 }`}
               >
                 <VendaIcon /> Vendas
@@ -67,8 +67,8 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/estatisticas'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-base-5 hover:text-prim-4 ${
-                  pathname.endsWith('estatisticas') && 'text-prim-4'
+                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
+                  pathname.endsWith('estatisticas') && 'text-teal-800'
                 }`}
               >
                 <EstatisticasIcon /> Estatísticas
@@ -77,8 +77,8 @@ export default function SideMenu() {
             <li>
               <Link
                 href={'/dashboard/configurar'}
-                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-base-5 hover:text-prim-4 ${
-                  pathname.endsWith('configurar') && 'text-prim-4'
+                className={`flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800 ${
+                  pathname.endsWith('configurar') && 'text-teal-800'
                 }`}
               >
                 <SettingsIcon /> Configurações
@@ -87,9 +87,9 @@ export default function SideMenu() {
           </ul>
         </nav>
         <div>
-          <Separator className="my-4 drop-shadow-md" />
+          <Separator className="my-4 drop-shadow-md bg-zinc-300" />
           <Button
-            className="font-body text-2xl text-base-5 flex items-center hover:text-prim-4"
+            className="font-body text-2xl text-zinc-900 flex items-center hover:text-teal-800"
             variant={'ghost'}
             onClick={handleLogout}
           >

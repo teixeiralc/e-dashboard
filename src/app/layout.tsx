@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ibmPlexMono, montserrat, spaceGrotesk } from './utils/fonts'
 import { Toaster } from '@/components/ui/sonner'
+import { ThemeProvider } from '@/components/theme-providers'
 
 export const metadata: Metadata = {
   title: 'e-Dashboard',
@@ -14,13 +15,15 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${montserrat.variable} bg-prim-4 antialiased`}
+        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${montserrat.variable} bg-zinc-800 antialiased container`}
       >
-        {children}
-        <Toaster richColors />
+        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+          {children}
+          <Toaster richColors />
+        </ThemeProvider>
       </body>
     </html>
   )

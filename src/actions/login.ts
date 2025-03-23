@@ -2,6 +2,7 @@
 
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
+import { revalidatePath } from 'next/cache'
 import { redirect } from 'next/navigation'
 
 export async function login(state: object, formData: FormData) {
@@ -22,6 +23,7 @@ export async function login(state: object, formData: FormData) {
   } catch (error) {
     return actionError(error)
   }
+  revalidatePath('/dashboard', 'layout')
   redirect('/dashboard')
 }
 
@@ -45,5 +47,6 @@ export async function signup(state: object, formData: FormData) {
   } catch (error) {
     return actionError(error)
   }
+  revalidatePath('/dashboard', 'layout')
   redirect('/dashboard')
 }

@@ -11,7 +11,7 @@ import { toast } from 'sonner'
 function FormButton() {
   const { pending } = useFormStatus()
   const className =
-    'bg-prim-4 text-prim-1 font-body uppercase font-bold text-base hover:bg-prim-1 hover:text-prim-4 drop-shadow-md'
+    'bg-zinc-800 text-teal-400 font-body uppercase font-bold text-base hover:text-zinc-100 drop-shadow-md'
 
   return pending ? (
     <Button className={className} disabled={pending}>
@@ -41,13 +41,13 @@ export default function SignUpForm() {
         <Label htmlFor="email" className="mb-1">
           E-mail -
         </Label>
-        <Input type="email" id="email" name="email" required />
+        <Input type="email" id="email" name="email" required placeholder="seu@email" />
       </div>
       <div>
         <Label htmlFor="password" className="mb-1">
           Senha -
         </Label>
-        <Input type="password" id="password" name="password" required />
+        <Input type="password" id="password" name="password" required placeholder="sua senha" />
       </div>
       <div className="flex self-end gap-4">
         <FormButton />

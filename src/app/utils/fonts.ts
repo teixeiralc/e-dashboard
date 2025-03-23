@@ -18,7 +18,7 @@ export const spaceGrotesk = Space_Grotesk({
 
 export const montserrat = Montserrat({
   variable: '--font-body',
-  weight: ['400', '700'],
+  weight: ['400', '500', '700'],
   fallback: ['sans-serif'],
   subsets: ['latin'],
   style: ['normal'],
