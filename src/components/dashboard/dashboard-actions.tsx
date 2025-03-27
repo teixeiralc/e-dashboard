@@ -1,9 +1,9 @@
 import Link from 'next/link'
-import NovoProdutoIcon from './ui/svg-icons/novo-produto-icon'
-import WidgetCard from './ui/widget-card'
-import PlusIcon from './ui/svg-icons/plus-icon'
-import NovaVendaIcon from './ui/svg-icons/nova-venda-icon'
-import NovoPerfilIcon from './ui/svg-icons/novo-perfil-icon'
+import NovoProdutoIcon from '../ui/svg-icons/novo-produto-icon'
+import WidgetCard from '../ui/widget-card'
+import PlusIcon from '../ui/svg-icons/plus-icon'
+import NovaVendaIcon from '../ui/svg-icons/nova-venda-icon'
+import NovoPerfilIcon from '../ui/svg-icons/novo-perfil-icon'
 
 export default function DashboardActions() {
   return (

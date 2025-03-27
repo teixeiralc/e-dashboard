@@ -35,7 +35,7 @@ export default function SideMenu() {
         <Separator className="my-4 drop-shadow-md bg-zinc-300" />
         <nav className="flex-[1]">
           <ul className="flex flex-col items-start gap-4">
-            <li>
+            <li className="w-full">
               <Link
                 href={'/dashboard'}
                 className={cn(
@@ -46,7 +46,7 @@ export default function SideMenu() {
                 <DashboardIcon /> Dashboard
               </Link>
             </li>
-            <li>
+            <li className="w-full">
               <Link
                 href={'/dashboard/produtos'}
                 className={cn(
@@ -57,7 +57,7 @@ export default function SideMenu() {
                 <ProdutosIcon /> Produtos
               </Link>
             </li>
-            <li>
+            <li className="w-full">
               <Link
                 href={'/dashboard/vendas'}
                 className={cn(
@@ -68,7 +68,7 @@ export default function SideMenu() {
                 <VendaIcon /> Vendas
               </Link>
             </li>
-            <li>
+            <li className="w-full">
               <Link
                 href={'/dashboard/estatisticas'}
                 className={cn(
@@ -79,7 +79,7 @@ export default function SideMenu() {
                 <EstatisticasIcon /> Estatísticas
               </Link>
             </li>
-            <li>
+            <li className="w-full">
               <Link
                 href={'/dashboard/configurar'}
                 className={cn(

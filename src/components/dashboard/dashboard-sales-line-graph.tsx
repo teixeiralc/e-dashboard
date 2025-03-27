@@ -10,7 +10,7 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart'
-import { IOrder } from '@/lib/types/order-type'
+import { IOrder } from '@/lib/types/db-types'
 import { format, parse } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 
