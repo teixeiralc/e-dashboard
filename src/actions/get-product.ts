@@ -4,13 +4,13 @@ import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
 import { IProduct } from '@/lib/types/db-types'
 
-export interface IGetProducts {
-  data: IProduct[] | null
+export interface IGetProduct {
+  data: IProduct | null
   error: string
   ok: boolean
 }
 
-export default async function getProducts(): Promise<IGetProducts> {
+export default async function getProduct(productId: string): Promise<IGetProduct> {
   const supabase = await createClient()
 
   try {
@@ -37,10 +37,11 @@ export default async function getProducts(): Promise<IGetProducts> {
       .from('products')
       .select('*')
       .eq('store_id', store.id)
-      .order('name', { ascending: true })
+      .eq('id', productId)
+      .single()
 
     if (productsError) {
-      throw new Error('Erro ao pegar os produtos')
+      throw new Error('Erro ao pegar o produto')
     }
 
     return { data: products, error: '', ok: true }

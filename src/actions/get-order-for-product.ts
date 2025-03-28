@@ -2,15 +2,15 @@
 
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
-import { IProduct } from '@/lib/types/db-types'
+import { IOrder } from '@/lib/types/db-types'
 
-export interface IGetProducts {
-  data: IProduct[] | null
+interface IGetOrders {
+  data: IOrder[] | null
   error: string
   ok: boolean
 }
 
-export default async function getProducts(): Promise<IGetProducts> {
+export default async function getOrdersForProduct(productId: string): Promise<IGetOrders> {
   const supabase = await createClient()
 
   try {
@@ -33,17 +33,18 @@ export default async function getProducts(): Promise<IGetProducts> {
       throw new Error('Loja não encontrada')
     }
 
-    const { data: products, error: productsError } = await supabase
-      .from('products')
+    const { data: ordersByProduct, error: ordersError } = await supabase
+      .from('dynamic_orders')
       .select('*')
       .eq('store_id', store.id)
-      .order('name', { ascending: true })
+      .eq('product_id', productId)
+      .order('created_at', { ascending: false })
 
-    if (productsError) {
-      throw new Error('Erro ao pegar os produtos')
+    if (ordersError) {
+      throw new Error('Erro ao pegar as vendas do produto')
     }
 
-    return { data: products, error: '', ok: true }
+    return { data: ordersByProduct, error: '', ok: true }
   } catch (error) {
     return actionError(error)
   }

@@ -6,6 +6,7 @@ import { ColumnDef } from '@tanstack/react-table'
 import { format } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
 import { ArrowUpDown } from 'lucide-react'
+import Link from 'next/link'
 
 export const productColumns: ColumnDef<IProduct>[] = [
   {
@@ -20,6 +21,15 @@ export const productColumns: ColumnDef<IProduct>[] = [
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
+    cell: ({ row }) => {
+      const product = row.original
+
+      return (
+        <Link href={`/dashboard/produtos/${product.id}`} className="hover:underline">
+          {product.name}
+        </Link>
+      )
+    },
     size: 250,
   },
   {

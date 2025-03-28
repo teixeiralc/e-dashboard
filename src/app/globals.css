@@ -154,3 +154,11 @@
     @apply bg-background text-foreground;
   }
 }
+
+body[data-scroll-locked] {
+  overflow: hidden !important;
+  overscroll-behavior: contain !important;
+  position: static !important;
+  padding: 0 !important;
+  margin: 0 80px !important;
+}

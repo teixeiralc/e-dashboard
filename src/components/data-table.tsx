@@ -49,7 +49,7 @@ export function DataTable<TData, TValue>({ columns, data, pageSize = 11 }: DataT
   })
 
   return (
-    <div>
+    <div className="font-body">
       <div className="flex items-center py-4">
         <Input
           placeholder="Pesquise por um produto..."

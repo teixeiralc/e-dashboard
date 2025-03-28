@@ -2,9 +2,12 @@
 
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
+import { redirect } from 'next/navigation'
 
-export default async function addProducts(state: object, formData: FormData) {
+export default async function newProduct(state: object, formData: FormData) {
   const supabase = await createClient()
+
+  const uuid = crypto.randomUUID()
 
   try {
     const {
@@ -47,6 +50,7 @@ export default async function addProducts(state: object, formData: FormData) {
       throw new Error('Preencha todos os dados do produto.')
 
     const newProduct = {
+      id: uuid,
       name,
       description,
       buy_price: parseFloat(buyPrice),
@@ -61,9 +65,8 @@ export default async function addProducts(state: object, formData: FormData) {
     if (insertError) {
       throw new Error('Erro ao adicionar o produto.')
     }
-
-    return { data: null, ok: true, error: '' }
   } catch (error) {
     return actionError(error)
   }
+  redirect(`/dashboard/produtos/${uuid}`)
 }

@@ -2,15 +2,14 @@
 
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
-import { IProduct } from '@/lib/types/db-types'
 
-export interface IGetProducts {
-  data: IProduct[] | null
+export interface IDeleteProduct {
+  data: null
   error: string
   ok: boolean
 }
 
-export default async function getProducts(): Promise<IGetProducts> {
+export default async function deleteProduct(productId: string): Promise<IDeleteProduct> {
   const supabase = await createClient()
 
   try {
@@ -33,17 +32,17 @@ export default async function getProducts(): Promise<IGetProducts> {
       throw new Error('Loja não encontrada')
     }
 
-    const { data: products, error: productsError } = await supabase
+    const { error: productsError } = await supabase
       .from('products')
-      .select('*')
+      .delete()
       .eq('store_id', store.id)
-      .order('name', { ascending: true })
+      .eq('id', productId)
 
     if (productsError) {
-      throw new Error('Erro ao pegar os produtos')
+      throw new Error('Erro ao deletar o produtos')
     }
 
-    return { data: products, error: '', ok: true }
+    return { data: null, error: '', ok: true }
   } catch (error) {
     return actionError(error)
   }
