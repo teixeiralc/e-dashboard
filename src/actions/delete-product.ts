@@ -22,21 +22,7 @@ export default async function deleteProduct(productId: string): Promise<IDeleteP
       throw new Error('Não autorizado')
     }
 
-    const { data: store, error: storeError } = await supabase
-      .from('stores')
-      .select('id')
-      .eq('user_id', user.id)
-      .single()
-
-    if (storeError || !store) {
-      throw new Error('Loja não encontrada')
-    }
-
-    const { error: productsError } = await supabase
-      .from('products')
-      .delete()
-      .eq('store_id', store.id)
-      .eq('id', productId)
+    const { error: productsError } = await supabase.from('products').delete().eq('id', productId)
 
     if (productsError) {
       throw new Error('Erro ao deletar o produtos')

@@ -1,14 +1,19 @@
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
-import { IOrder } from '@/lib/types/db-types'
+
+export interface IFrontPageOrders {
+  status: 'pending' | 'shipped' | 'delivered' | 'cancelled'
+  total_price: number
+  created_at: string
+}
 
 interface IGetOrders {
-  data: IOrder[] | null
+  data: IFrontPageOrders[] | null
   error: string
   ok: boolean
 }
 
-export default async function getOrders(startDate: string, endDate: string,): Promise<IGetOrders> {
+export default async function getFrontPageOrders(startDate: string, endDate: string): Promise<IGetOrders> {
   const supabase = await createClient()
 
   try {
@@ -23,7 +28,7 @@ export default async function getOrders(startDate: string, endDate: string,): Pr
 
     const { data: orders, error: ordersError } = await supabase
       .from('dynamic_orders')
-      .select('*')
+      .select('status, total_price, created_at')
       .gte('created_at', startDate)
       .lte('created_at', endDate)
       .order('created_at', { ascending: false })

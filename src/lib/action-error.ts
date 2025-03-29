@@ -2,13 +2,13 @@ export default function actionError(err: unknown): { data: null; ok: false; erro
   if (err instanceof Error) {
     return {
       ok: false,
-      error: err.message,
+      error: err.message || 'Ocorreu um erro inesperado',
       data: null,
     }
   } else {
     return {
       ok: false,
-      error: 'Ocorreu um erro inesperado.',
+      error: 'Ocorreu um erro inesperado',
       data: null,
     }
   }

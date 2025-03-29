@@ -29,16 +29,6 @@ export default async function newProduct(state: object, formData: FormData) {
       throw new Error('Loja não encontrada')
     }
 
-    const { error: productsError } = await supabase
-      .from('products')
-      .select('*')
-      .eq('store_id', store.id)
-      .order('name', { ascending: true })
-
-    if (productsError) {
-      throw new Error('Erro ao pegar os prodtuos')
-    }
-
     const name = formData.get('name') as string | null
     const description = formData.get('description') as string | null
     const buyPrice = formData.get('buy_price') as string | null

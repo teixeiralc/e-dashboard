@@ -1,4 +1,4 @@
-import getOrders from '@/actions/get-orders'
+import getFrontPageOrders from '@/actions/get-front-page-orders'
 import DashboardActions from '@/components/dashboard/dashboard-actions'
 import DashboardDateFilter from '@/components/dashboard/dashboard-date-filter'
 import DashboardSalesLineGraph from '@/components/dashboard/dashboard-sales-line-graph'
@@ -20,7 +20,7 @@ export default async function DashboardPage({ searchParams }: IPageProps) {
   const startDate = currSearchParams.startDate || (new Date().toISOString().split('T')[0] as string)
   const endDate = currSearchParams.endDate || (new Date().toISOString().split('T')[0] as string)
 
-  const { data: orders } = await getOrders(startDate, endDate)
+  const { data: orders } = await getFrontPageOrders(startDate, endDate)
   if (!orders) return null
 
   const totalSalesByStatus = orders.reduce(

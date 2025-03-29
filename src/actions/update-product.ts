@@ -16,16 +16,6 @@ export default async function updateProduct(state: object, formData: FormData) {
       throw new Error('Não autorizado')
     }
 
-    const { data: store, error: storeError } = await supabase
-      .from('stores')
-      .select('id')
-      .eq('user_id', user.id)
-      .single()
-
-    if (storeError || !store) {
-      throw new Error('Loja não encontrada')
-    }
-
     const productId = formData.get('id') as string | null
     if (!productId) {
       throw new Error('ID do produto não fornecido.')
@@ -51,10 +41,7 @@ export default async function updateProduct(state: object, formData: FormData) {
       return { data: null, ok: true, error: '' }
     }
 
-    const { error: updateError } = await supabase
-      .from('products')
-      .update(updatedFields)
-      .match({ id: productId, store_id: store.id })
+    const { error: updateError } = await supabase.from('products').update(updatedFields).match({ id: productId })
 
     if (updateError) {
       throw new Error('Erro ao atualizar o produto.')

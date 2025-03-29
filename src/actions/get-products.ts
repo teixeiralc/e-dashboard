@@ -1,5 +1,3 @@
-'use server'
-
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
 import { IProduct } from '@/lib/types/db-types'
@@ -23,21 +21,7 @@ export default async function getProducts(): Promise<IGetProducts> {
       throw new Error('Não autorizado')
     }
 
-    const { data: store, error: storeError } = await supabase
-      .from('stores')
-      .select('id')
-      .eq('user_id', user.id)
-      .single()
-
-    if (storeError || !store) {
-      throw new Error('Loja não encontrada')
-    }
-
-    const { data: products, error: productsError } = await supabase
-      .from('products')
-      .select('*')
-      .eq('store_id', store.id)
-      .order('name', { ascending: true })
+    const { data: products, error: productsError } = await supabase.from('products').select('*')
 
     if (productsError) {
       throw new Error('Erro ao pegar os produtos')

@@ -13,11 +13,11 @@ export async function generateMetadata() {
 }
 
 export default async function ProdutosPage() {
-  const { data } = await getProducts()
+  const { data, error, ok } = await getProducts()
 
-  if (!data)
+  if (!data?.length || !ok || error)
     return (
-      <BaseCard>
+      <BaseCard className="mt-8 mb-8">
         <p>Nenhum produto encontrado.</p>
       </BaseCard>
     )

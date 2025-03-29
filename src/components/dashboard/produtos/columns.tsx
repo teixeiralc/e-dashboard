@@ -25,7 +25,7 @@ export const productColumns: ColumnDef<IProduct>[] = [
       const product = row.original
 
       return (
-        <Link href={`/dashboard/produtos/${product.id}`} className="hover:underline">
+        <Link href={`/dashboard/produtos/${product.id}`} prefetch={false} className="hover:underline">
           {product.name}
         </Link>
       )

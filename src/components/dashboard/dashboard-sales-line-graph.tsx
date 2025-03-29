@@ -10,9 +10,9 @@ import {
   ChartTooltip,
   ChartTooltipContent,
 } from '@/components/ui/chart'
-import { IOrder } from '@/lib/types/db-types'
 import { format, parse } from 'date-fns'
 import { ptBR } from 'date-fns/locale'
+import { IFrontPageOrders } from '@/actions/get-front-page-orders'
 
 const chartConfig = {
   delivered: {
@@ -29,7 +29,7 @@ const chartConfig = {
   },
 } satisfies ChartConfig
 
-export default function DashboardSalesLineGraph({ orders }: { orders: IOrder[] }) {
+export default function DashboardSalesLineGraph({ orders }: { orders: IFrontPageOrders[] }) {
   const chartOrdersData = orders.reduce((acc, order) => {
     const formattedDate = format(new Date(order.created_at), 'dd/MMM/yy', {
       locale: ptBR,
