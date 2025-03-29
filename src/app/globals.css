@@ -162,3 +162,9 @@ body[data-scroll-locked] {
   padding: 0 !important;
   margin: 0 80px !important;
 }
+
+@media (max-width: 1200px) {
+  body[data-scroll-locked] {
+    margin: 0 50px !important;
+  }
+}

@@ -6,6 +6,12 @@ import { ExportToExcel } from '@/components/export-to-excel'
 import BaseCard from '@/components/ui/base-card'
 import { IProduct } from '@/lib/types/db-types'
 
+export async function generateMetadata() {
+  return {
+    title: `Produtos | e-Dashboard`,
+  }
+}
+
 export default async function ProdutosPage() {
   const { data } = await getProducts()
 
@@ -27,7 +33,7 @@ export default async function ProdutosPage() {
           </div>
         </BaseCard>
       </section>
-      <section className="h-full">
+      <section className="h-full mb-8">
         <BaseCard className="h-full">
           {data ? <DataTable columns={productColumns} data={data} /> : <p>Nenhum produto encontrado.</p>}
         </BaseCard>

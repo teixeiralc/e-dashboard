@@ -12,6 +12,7 @@ import Link from 'next/link'
 
 import DeleteProduct from '@/components/delete-product'
 import getOrdersForProduct from '@/actions/get-order-for-product'
+import EditProduct from '@/components/edit-product'
 
 interface ProdutoIdParams {
   params: Promise<{
@@ -23,9 +24,9 @@ export async function generateMetadata({ params }: ProdutoIdParams) {
   const productParams = await params
   const { data: product } = await getProduct(productParams.id)
 
-  if (!product) return { title: 'Produto' }
+  if (!product) return { title: 'Produto | e-Dashboard' }
   return {
-    title: `${product.name} | e-Dash`,
+    title: `${product.name} | e-Dashboard`,
   }
 }
 
@@ -154,7 +155,10 @@ export default async function ProdutoIdPage({ params }: ProdutoIdParams) {
                 </div>
               )}
             </ul>
-            <DeleteProduct productId={formattedProduct.id} productName={formattedProduct.name} />
+            <div className="flex gap-4 items-center">
+              <EditProduct productId={productId} />
+              <DeleteProduct productId={formattedProduct.id} productName={formattedProduct.name} />
+            </div>
           </div>
         </div>
       </BaseCard>

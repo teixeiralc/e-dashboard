@@ -24,7 +24,7 @@ export default function DeleteProduct({ productId, productName }: { productId: s
     }
 
     if (ok) {
-      toast('Produto deletado com sucesso.')
+      toast.success('Produto deletado com sucesso.')
       redirect('/dashboard/produtos')
     }
   }
@@ -40,7 +40,7 @@ export default function DeleteProduct({ productId, productName }: { productId: s
         <AlertDialogHeader>
           <AlertDialogTitle>Tem certeza que quer deletar o produto?</AlertDialogTitle>
           <AlertDialogDescription>
-            Essa ação não pode ser revertida. O produto {productName} será permanentemente removido da sua base de
+            Essa ação não pode ser revertida. O produto {productName} será permanentemente removido base de
             dados.
           </AlertDialogDescription>
         </AlertDialogHeader>

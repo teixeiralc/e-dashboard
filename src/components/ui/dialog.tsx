@@ -205,7 +205,7 @@ export function DialogContent({ children, className, ...props }: React.HTMLAttri
             top: '1rem',
           }}
         >
-          <X className="h-4 w-4" />
+          <X className="h-4 w-4 cursor-pointer" />
           <span className="sr-only">Close</span>
         </button>
       </div>

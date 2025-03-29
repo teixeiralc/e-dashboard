@@ -50,7 +50,7 @@ export default function AddProduct() {
       <DialogTrigger asChild>
         <Button className="hover:text-teal-400 text-base font-body">Adicionar Produto</Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px]">
+      <DialogContent className="sm:max-w-[400px] relative">
         <DialogHeader>
           <DialogTitle>Adicionar produto</DialogTitle>
           <DialogDescription>Preencha todos os campos abaixo.</DialogDescription>
@@ -58,8 +58,8 @@ export default function AddProduct() {
         <form action={action} className="flex flex-col gap-2 mt-4">
           <Input type="text" id="name" name="name" required placeholder="Nome" />
           <Input type="text" id="description" name="description" required placeholder="Descrição" />
-          <Input type="number" id="buy_price" name="buy_price" required placeholder="Preço de Custo" />
-          <Input type="number" id="retail_price" name="retail_price" required placeholder="Preço de Venda" />
+          <Input type="number" step="any" id="buy_price" name="buy_price" required placeholder="Preço de Custo" />
+          <Input type="number" step="any" id="retail_price" name="retail_price" required placeholder="Preço de Venda" />
           <Input type="number" id="stock" name="stock" required placeholder="Estoque" />
           <Input type="text" id="category" name="category" required placeholder="Categoria" />
           <FormButton />
