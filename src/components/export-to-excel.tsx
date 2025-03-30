@@ -3,7 +3,7 @@
 import * as XLSX from 'xlsx'
 import { saveAs } from 'file-saver'
 import { Button } from './ui/button'
-import ExcelIcon from './ui/svg-icons/excel-icon'
+import { FileUp } from 'lucide-react'
 
 interface IExportToExcelProps<T> {
   data: T[]
@@ -27,8 +27,8 @@ export function ExportToExcel<T>({ data, fileName = 'export' }: IExportToExcelPr
     saveAs(blob, `${fileName}.xlsx`)
   }
   return (
-    <Button onClick={handleExport}>
-      <ExcelIcon />
+    <Button onClick={handleExport} className="hover:text-teal-400">
+      <FileUp className="h-4 w-4" />
     </Button>
   )
 }

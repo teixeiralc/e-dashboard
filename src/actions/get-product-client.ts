@@ -1,5 +1,5 @@
 import actionError from '@/lib/action-error'
-import { createClient } from '@/lib/supabase/server'
+import { createClient } from '@/lib/supabase/client'
 import { IProduct } from '@/lib/types/db-types'
 
 export interface IGetProduct {
@@ -8,8 +8,8 @@ export interface IGetProduct {
   ok: boolean
 }
 
-export default async function getProduct(productId: string): Promise<IGetProduct> {
-  const supabase = await createClient()
+export default async function getProductClient(productId: string): Promise<IGetProduct> {
+  const supabase = createClient()
 
   try {
     const {

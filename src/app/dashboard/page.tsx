@@ -1,20 +1,18 @@
 import getFrontPageOrders from '@/actions/get-front-page-orders'
 import DashboardActions from '@/components/dashboard/dashboard-actions'
 import DashboardDateFilter from '@/components/dashboard/dashboard-date-filter'
+import DashboardSales from '@/components/dashboard/dashboard-sales'
 import DashboardSalesLineGraph from '@/components/dashboard/dashboard-sales-line-graph'
 import BaseCard from '@/components/ui/base-card'
-import WidgetCard from '@/components/ui/widget-card'
-import { formatCurrency } from '@/lib/utils'
-
-interface IPageProps {
+interface ISearchParamsProps {
   searchParams: Promise<{
     startDate: string
     endDate: string
   }>
 }
-type TOrderStatus = 'cancelled' | 'delivered' | 'shipped' | 'pending'
+export type TOrderStatus = 'cancelled' | 'delivered' | 'shipped' | 'pending'
 
-export default async function DashboardPage({ searchParams }: IPageProps) {
+export default async function DashboardPage({ searchParams }: ISearchParamsProps) {
   const currSearchParams = await searchParams
 
   const startDate = currSearchParams.startDate || (new Date().toISOString().split('T')[0] as string)
@@ -40,30 +38,7 @@ export default async function DashboardPage({ searchParams }: IPageProps) {
     <main className="container flex flex-col gap-8">
       <section>
         <BaseCard className="mt-8 flex flex-col gap-16">
-          <div className="flex justify-evenly gap-16">
-            <WidgetCard legend="Aprovado" statusColor="success" className="max-w-72 items-center justify-center flex">
-              <span className="text-xl text-zinc-900 font-body">R$</span>
-              <span className="text-5xl text-zinc-900 font-body font-medium">
-                {formatCurrency(totalSalesByStatus.delivered)}
-              </span>
-            </WidgetCard>
-            <WidgetCard
-              legend="Em andamento"
-              statusColor="warning"
-              className="max-w-72 items-center justify-center flex"
-            >
-              <span className="text-xl text-zinc-900 font-body">R$</span>
-              <span className="text-5xl text-zinc-900 font-body font-medium">
-                {formatCurrency(totalSalesByStatus.shipped + totalSalesByStatus.pending)}
-              </span>
-            </WidgetCard>
-            <WidgetCard legend="Cancelado" statusColor="error" className="max-w-72 items-center justify-center flex">
-              <span className="text-xl text-zinc-900 font-body">R$</span>
-              <span className="text-5xl text-zinc-900 font-body font-medium">
-                {formatCurrency(totalSalesByStatus.cancelled)}
-              </span>
-            </WidgetCard>
-          </div>
+          <DashboardSales totalSalesByStatus={totalSalesByStatus} />
           <div className="flex gap-8 justify-evenly">
             <DashboardDateFilter />
             <DashboardActions />

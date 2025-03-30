@@ -37,7 +37,7 @@ export default function DashboardDateFilter() {
       setParamsStartDate(date?.from?.toISOString().split('T')[0])
       setParamsEndDate(date?.to?.toISOString().split('T')[0])
     }
-    router.push(`?startDate=${paramsStartDate}&endDate=${paramsEndDate}`)
+    router.replace(`?startDate=${paramsStartDate}&endDate=${paramsEndDate}`)
   }, [date, paramsEndDate, paramsStartDate, router])
 
   return (

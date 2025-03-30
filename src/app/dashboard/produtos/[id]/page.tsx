@@ -14,13 +14,13 @@ import DeleteProduct from '@/components/delete-product'
 import getOrdersForProduct from '@/actions/get-order-for-product'
 import EditProduct from '@/components/edit-product'
 
-interface ProdutoIdParams {
+interface IProdutoIdParams {
   params: Promise<{
     id: string
   }>
 }
 
-export async function generateMetadata({ params }: ProdutoIdParams) {
+export async function generateMetadata({ params }: IProdutoIdParams) {
   const productParams = await params
   const { data: product } = await getProduct(productParams.id)
 
@@ -30,7 +30,7 @@ export async function generateMetadata({ params }: ProdutoIdParams) {
   }
 }
 
-export default async function ProdutoIdPage({ params }: ProdutoIdParams) {
+export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
   const productParams = await params
   const productId = productParams.id
 

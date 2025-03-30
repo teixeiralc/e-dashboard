@@ -9,6 +9,16 @@ export interface IOrder {
   store_id: string
 }
 
+export interface IFormattedOrder {
+  id: string
+  product: string
+  customer_email: string
+  quantity: number
+  total_price: number
+  status: 'pending' | 'shipped' | 'delivered' | 'cancelled'
+  created_at: string
+}
+
 export interface IProduct {
   id: string
   name: string

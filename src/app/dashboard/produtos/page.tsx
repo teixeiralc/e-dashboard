@@ -1,7 +1,7 @@
 import getProducts from '@/actions/get-products'
 import AddProduct from '@/components/add-product'
 import { productColumns } from '@/components/dashboard/produtos/columns'
-import { DataTable } from '@/components/data-table'
+import { DataTable } from '@/components/dashboard/produtos/produtos-data-table'
 import { ExportToExcel } from '@/components/export-to-excel'
 import BaseCard from '@/components/ui/base-card'
 import { IProduct } from '@/lib/types/db-types'
@@ -35,7 +35,7 @@ export default async function ProdutosPage() {
       </section>
       <section className="h-full mb-8">
         <BaseCard className="h-full">
-          {data ? <DataTable columns={productColumns} data={data} /> : <p>Nenhum produto encontrado.</p>}
+          {data ? <DataTable columns={productColumns} data={data} /> : <p>Nenhum produto encontrado</p>}
         </BaseCard>
       </section>
     </main>

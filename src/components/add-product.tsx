@@ -10,7 +10,7 @@ import {
 } from '@/components/ui/dialog'
 
 import { Button } from './ui/button'
-import { useActionState, useEffect, useState } from 'react'
+import { ReactNode, useActionState, useEffect, useState } from 'react'
 import newProduct from '@/actions/new-product'
 import { toast } from 'sonner'
 import { useFormStatus } from 'react-dom'
@@ -29,7 +29,7 @@ function FormButton() {
   )
 }
 
-export default function AddProduct() {
+export default function AddProduct({ children }: { children?: ReactNode }) {
   const [open, setOpen] = useState(false)
 
   const [state, action] = useActionState(newProduct, {
@@ -48,7 +48,7 @@ export default function AddProduct() {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button className="hover:text-teal-400 text-base font-body">Adicionar Produto</Button>
+        {children ? children : <Button className="hover:text-teal-400 text-base font-body">Adicionar Produto</Button>}
       </DialogTrigger>
       <DialogContent className="sm:max-w-[400px] relative">
         <DialogHeader>

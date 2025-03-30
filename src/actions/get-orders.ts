@@ -8,7 +8,7 @@ interface IGetOrders {
   ok: boolean
 }
 
-export default async function getOrders(startDate: string, endDate: string,): Promise<IGetOrders> {
+export default async function getOrders(startDate: string, endDate: string): Promise<IGetOrders> {
   const supabase = await createClient()
 
   try {
