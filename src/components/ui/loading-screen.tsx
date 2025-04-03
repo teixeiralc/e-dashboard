@@ -87,7 +87,7 @@ export default function LoadingScreen({
         {/* Text with typing animation */}
         {text && (
           <div className="overflow-hidden">
-            <p className={cn('text-xl font-medium text-zinc-100', 'animate-pulse', textClassName)}>
+            <p className={cn('text-xl font-medium text-white', 'animate-pulse', textClassName)}>
               {text}
               <span className="ml-1 inline-block animate-bounce">.</span>
               <span className="ml-0.5 inline-block animate-bounce" style={{ animationDelay: '0.2s' }}>

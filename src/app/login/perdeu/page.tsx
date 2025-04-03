@@ -1,17 +1,21 @@
-import SignUpForm from '@/components/auth/signup-form'
+import PerdeuForm from '@/components/auth/perdeu-form'
 import ArrowLeftIcon from '@/components/ui/svg-icons/arrow-left-icon'
 import Link from 'next/link'
 
-export default async function LoginCadastrarPage() {
+export default function PerdeuPage() {
   return (
     <main className="flex items-center justify-center h-screen">
       <div className="flex flex-col bg-white rounded-2xl p-12 items-center justify-center gap-20">
         <Link href="/login" className="self-start -mb-10">
           <ArrowLeftIcon />
         </Link>
-        <h1 className="font-title font-bold text-4xl">Cadastre-se</h1>
-        <SignUpForm />
-        <p className="text-zinc-700 font-data text-xs self-start ">Obs.: Não será necessário confirmar o e-mail.</p>
+        <h1 className="font-title font-bold text-4xl mt-12">Perdeu a senha?</h1>
+        <PerdeuForm />
+        <p className="text-zinc-700 font-data text-xs self-start ">
+          Obs.: Um e-mail de recuperação de senha
+          <br />
+          será enviado.
+        </p>
       </div>
     </main>
   )

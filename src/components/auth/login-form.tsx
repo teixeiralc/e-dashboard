@@ -11,8 +11,7 @@ import { toast } from 'sonner'
 
 function FormButton() {
   const { pending } = useFormStatus()
-  const className =
-    'bg-zinc-800 text-teal-400 font-body uppercase font-bold text-base hover:text-zinc-100 drop-shadow-md'
+  const className = 'bg-zinc-800 text-teal-400 font-body uppercase font-bold text-base hover:text-white drop-shadow-md'
 
   return pending ? (
     <Button className={className} disabled={pending}>

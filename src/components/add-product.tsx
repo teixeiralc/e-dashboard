@@ -18,7 +18,7 @@ import { Input } from './ui/input'
 
 function FormButton() {
   const { pending } = useFormStatus()
-  const className = 'bg-zinc-800 hover:text-teal-400 font-body font-bold text-xs text-zinc-100 drop-shadow-md mt-2'
+  const className = 'bg-zinc-800 hover:text-teal-400 font-body font-bold text-xs text-white drop-shadow-md mt-2'
 
   return pending ? (
     <Button className={className} disabled={pending}>

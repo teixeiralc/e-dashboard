@@ -28,7 +28,7 @@ export default function SideMenu() {
 
   return (
     <section className="container sticky top-0 h-screen">
-      <div className="mt-8 bg-zinc-100 p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)] drop-shadow-2xl">
+      <div className="mt-8 bg-white p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)] drop-shadow-2xl">
         <div className="self-center">
           <h1 className="font-title text-zinc-900 text-4xl drop-shadow-md">e-Dashboard</h1>
         </div>
