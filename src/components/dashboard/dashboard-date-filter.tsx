@@ -33,7 +33,7 @@ export default function DashboardDateFilter() {
   }
 
   useEffect(() => {
-    if (date) {
+    if (date && date.to) {
       setParamsStartDate(date?.from?.toISOString().split('T')[0])
       setParamsEndDate(date?.to?.toISOString().split('T')[0])
     }

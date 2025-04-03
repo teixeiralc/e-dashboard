@@ -26,7 +26,7 @@ export default function DashboardActions() {
         </button>
       </AddProduct>
       <Link
-        href={'/'}
+        href={'/dashboard/vendas/adicionar'}
         className="uppercase text-zinc-900 font-body text-xs flex flex-col items-center justify-center gap-2"
       >
         <div className="p-4 bg-teal-700 hover:bg-teal-900 ease-in-out duration-200 rounded-xl relative">

@@ -2,6 +2,7 @@
 
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
+import { daysUntilTargetDate } from '@/lib/utils'
 import { redirect } from 'next/navigation'
 
 export default async function newOrder(state: object, formData: FormData) {
@@ -57,7 +58,7 @@ export default async function newOrder(state: object, formData: FormData) {
     }
 
     const currentDate = new Date()
-    currentDate.setDate(currentDate.getDate() - 7)
+    currentDate.setDate(currentDate.getDate() + (daysUntilTargetDate('2025-03-23') + 1))
     const dateMinus7Days = currentDate.toISOString()
 
     const newOrder = {

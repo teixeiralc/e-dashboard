@@ -1,11 +1,13 @@
 import getOrders from '@/actions/get-orders'
 import getProductsId from '@/actions/get-products-id'
-import AddOrder from '@/components/add-order'
 import { ordersColumns } from '@/components/dashboard/vendas/columns'
 import { DataTable } from '@/components/dashboard/vendas/vendas-data-table'
 import { ExportToExcel } from '@/components/export-to-excel'
 import BaseCard from '@/components/ui/base-card'
+import { buttonVariants } from '@/components/ui/button'
 import { IFormattedOrder } from '@/lib/types/db-types'
+import { cn } from '@/lib/utils'
+import Link from 'next/link'
 
 export async function generateMetadata() {
   return {
@@ -15,7 +17,7 @@ export async function generateMetadata() {
 
 export default async function VendasPage() {
   const startDate = new Date('01/01/2023').toISOString().split('T')[0] as string
-  const endDate = new Date().toISOString().split('T')[0] as string
+  const endDate = new Date('01/01/2029').toISOString().split('T')[0] as string
 
   const { data: orders, ok, error } = await getOrders(startDate, endDate)
   const { data: products } = await getProductsId()
@@ -62,7 +64,12 @@ export default async function VendasPage() {
           <h1 className="text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">Vendas</h1>
           <div className="flex items-center justify-end gap-2">
             <ExportToExcel<IFormattedOrder> data={formattedOrders} fileName="Vendas" />
-            <AddOrder products={products} />
+            <Link
+              href={'/dashboard/vendas/adicionar'}
+              className={cn('hover:text-teal-400 text-base font-body', buttonVariants({ variant: 'default' }))}
+            >
+              Adicionar Venda
+            </Link>
           </div>
         </BaseCard>
       </section>

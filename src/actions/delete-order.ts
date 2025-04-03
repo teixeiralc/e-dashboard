@@ -3,13 +3,13 @@
 import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
 
-export interface IDeleteProduct {
+export interface IDeleteOrder {
   data: null
   error: string
   ok: boolean
 }
 
-export default async function deleteProduct(productId: string): Promise<IDeleteProduct> {
+export default async function deleteOrder(orderId: string): Promise<IDeleteOrder> {
   const supabase = await createClient()
 
   try {
@@ -22,10 +22,10 @@ export default async function deleteProduct(productId: string): Promise<IDeleteP
       throw new Error('Não autorizado')
     }
 
-    const { error: productsError } = await supabase.from('products').delete().eq('id', productId)
+    const { error: ordersError } = await supabase.from('orders').delete().eq('id', orderId)
 
-    if (productsError) {
-      throw new Error('Erro ao deletar o produto')
+    if (ordersError) {
+      throw new Error('Erro ao deletar a venda')
     }
 
     return { data: null, error: '', ok: true }

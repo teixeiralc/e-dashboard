@@ -35,7 +35,7 @@ export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
   const productId = productParams.id
 
   const { data: product } = await getProduct(productId)
-  if (!product) return <div>Produto nao encontrado</div>
+  if (!product) return <div>Produto não encontrado.</div>
 
   const { data: ordersForProduct } = await getOrdersForProduct(productId)
 
@@ -144,7 +144,7 @@ export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
                     </p>
                   </li>
                   <li>
-                    Vendas em canceladas:{' '}
+                    Vendas canceladas:{' '}
                     <p className="font-data inline-block text-red-800">
                       {sumOfOrdersByStatus?.cancelled?.toLocaleString('pt-BR', {
                         style: 'currency',

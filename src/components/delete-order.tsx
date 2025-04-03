@@ -1,6 +1,6 @@
 'use client'
 
-import deleteProduct from '@/actions/delete-product'
+import deleteOrder from '@/actions/delete-order'
 import {
   AlertDialog,
   AlertDialogAction,
@@ -16,16 +16,16 @@ import { Button, buttonVariants } from '@/components/ui/button'
 import { redirect } from 'next/navigation'
 import { toast } from 'sonner'
 
-export default function DeleteProduct({ productId, productName }: { productId: string; productName: string }) {
-  async function handleProductDelete() {
-    const { error, ok } = await deleteProduct(productId)
+export default function DeleteOrder({ orderId }: { orderId: string }) {
+  async function handleOrderDelete() {
+    const { error, ok } = await deleteOrder(orderId)
     if (error !== '' || !ok) {
       return toast.error(error)
     }
 
     if (ok) {
-      toast.success('Produto deletado com sucesso.')
-      redirect('/dashboard/produtos')
+      toast.success('Venda deletada com sucesso.')
+      redirect('/dashboard/vendas')
     }
   }
 
@@ -33,19 +33,19 @@ export default function DeleteProduct({ productId, productName }: { productId: s
     <AlertDialog>
       <AlertDialogTrigger asChild>
         <Button variant="destructive" className="text-base">
-          Deletar Produto
+          Deletar Venda
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Tem certeza que quer deletar o produto?</AlertDialogTitle>
+          <AlertDialogTitle>Tem certeza que quer deletar a venda?</AlertDialogTitle>
           <AlertDialogDescription>
-            Essa ação não pode ser revertida. O produto {productName} será permanentemente removido da base de dados.
+            Essa ação não pode ser revertida. A venda {orderId} será permanentemente removida da base de dados.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancelar</AlertDialogCancel>
-          <AlertDialogAction className={buttonVariants({ variant: 'destructive' })} onClick={handleProductDelete}>
+          <AlertDialogAction className={buttonVariants({ variant: 'destructive' })} onClick={handleOrderDelete}>
             Tenho certeza
           </AlertDialogAction>
         </AlertDialogFooter>
