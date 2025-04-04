@@ -3,16 +3,12 @@
 import Link from 'next/link'
 import { Button } from './ui/button'
 import { Separator } from './ui/separator'
-import DashboardIcon from './ui/svg-icons/dashboard-icon'
-import EstatisticasIcon from './ui/svg-icons/estatisticas-icon'
-import ProdutosIcon from './ui/svg-icons/produtos-icon'
 import SairIcon from './ui/svg-icons/sair-icon'
-import SettingsIcon from './ui/svg-icons/settings-icon'
-import VendaIcon from './ui/svg-icons/venda-icon'
 import { usePathname } from 'next/navigation'
 import { logout } from '@/actions/logout'
 import { toast } from 'sonner'
 import { cn } from '@/lib/utils'
+import { ChartArea, CircleDollarSign, Info, LayoutDashboard, PackageSearch } from 'lucide-react'
 
 export default function SideMenu() {
   const pathname = usePathname()
@@ -43,7 +39,7 @@ export default function SideMenu() {
                   pathname === '/dashboard' && 'text-teal-800',
                 )}
               >
-                <DashboardIcon /> Dashboard
+                <LayoutDashboard /> Dashboard
               </Link>
             </li>
             <li className="w-full">
@@ -54,7 +50,7 @@ export default function SideMenu() {
                   pathname.includes('/dashboard/produtos') && 'text-teal-800',
                 )}
               >
-                <ProdutosIcon /> Produtos
+                <PackageSearch /> Produtos
               </Link>
             </li>
             <li className="w-full">
@@ -65,7 +61,7 @@ export default function SideMenu() {
                   pathname.includes('/dashboard/vendas') && 'text-teal-800',
                 )}
               >
-                <VendaIcon /> Vendas
+                <CircleDollarSign /> Vendas
               </Link>
             </li>
             <li className="w-full">
@@ -76,18 +72,18 @@ export default function SideMenu() {
                   pathname.includes('/dashboard/estatisticas') && 'text-teal-800',
                 )}
               >
-                <EstatisticasIcon /> Estatísticas
+                <ChartArea /> Estatísticas
               </Link>
             </li>
             <li className="w-full">
               <Link
-                href={'/dashboard/configurar'}
+                href={'/dashboard/informacoes'}
                 className={cn(
                   `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
-                  pathname.includes('/dashboard/configurar') && 'text-teal-800',
+                  pathname.includes('/dashboard/informacoes') && 'text-teal-800',
                 )}
               >
-                <SettingsIcon /> Configurações
+                <Info /> Informações
               </Link>
             </li>
           </ul>
