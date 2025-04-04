@@ -4,6 +4,7 @@ import actionError from '@/lib/action-error'
 import { createClient } from '@/lib/supabase/server'
 import { daysUntilTargetDate } from '@/lib/utils'
 import { redirect } from 'next/navigation'
+import updateStockOnNewOrder from './update-stock-on-new-order'
 
 export default async function newOrder(state: object, formData: FormData) {
   const supabase = await createClient()
@@ -72,10 +73,12 @@ export default async function newOrder(state: object, formData: FormData) {
       store_id: store.id,
     }
 
+    await updateStockOnNewOrder(productId, parseInt(quantity))
     const { error: insertError } = await supabase.from('orders').insert([newOrder]).single()
 
     if (insertError) {
-      console.log(insertError)
+      // updates the stock back to it's correct value, since an order failed to be placed
+      await updateStockOnNewOrder(productId, parseInt(quantity) * -1)
       throw new Error('Erro ao adicionar a venda.')
     }
   } catch (error) {
