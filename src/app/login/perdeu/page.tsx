@@ -14,7 +14,7 @@ export default function PerdeuPage() {
         <p className="text-zinc-700 font-data text-xs self-start ">
           Obs.: Um e-mail de recuperação de senha
           <br />
-          será enviado.
+          será enviado
         </p>
       </div>
     </main>

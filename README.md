@@ -1,36 +1,128 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Documentação do Projeto | e-Dashboard
 
-First, run the development server:
+## Introdução
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Este projeto é um painel administrativo de e-commerce desenvolvido com **Next.js 15**, **React**, **Tailwind CSS**, **ShadCN** e **Supabase**. Ele permite que usuários gerenciem produtos, pedidos e estatísticas de sua loja virtual.
+
+## Tecnologias Utilizadas
+
+- **Next.js 15**: Framework para React com renderização no servidor.
+- **React**: Biblioteca para interfaces de usuário.
+- **Tailwind CSS**: Framework CSS utilitário.
+- **ShadCN**: Componentes acessíveis e estilizados para React.
+- **Supabase**: Banco de dados e autenticação baseado em PostgreSQL.
+
+## Funcionalidades Principais
+
+- **Autenticação**: Login, cadastro e reset de senha via Supabase Auth.
+- **Gestão de Produtos**: Visualização, criação, edição e remoção de produtos.
+- **Gerenciamento de Pedidos**: Visualização e controle de pedidos.
+- **Estatísticas**: Gráfico sobre vendas.
+
+## Estrutura do Projeto
+
+O projeto segue a estrutura padrão do Next.js 15:
+
+```
+.
+├── app/
+│   ├── dashboard/
+|   |   ├── [rotas]/
+│   │   ├── layout.tsx
+│   │   ├── page.tsx
+│   ├── login/
+|   |   ├── [rotas]/
+│   │   ├── page.tsx
+├── components/
+├── lib/
+├── public/
+├── README.md
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- `app/`: Contém as páginas do projeto.
+- `components/`: Componentes reutilizáveis.
+- `lib/`: Funções auxiliares.
+- `public/`: Arquivos estáticos.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Estrutura do Banco de Dados
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Tabela `stores`
 
-## Learn More
+| Coluna      | Tipo      | Descrição                     |
+|-------------|-----------|-------------------------------|
+| `id`        | UUID      | Identificador único da loja   |
+| `user_id`   | UUID      | ID do usuário dono da loja    |
+| `name`      | TEXT      | Nome da loja                  |
+| `created_at`| TIMESTAMP | Data de criação da loja       |
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Tabela `products`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+| Coluna         | Tipo      | Descrição                          |
+|----------------|-----------|------------------------------------|
+| `id`           | UUID      | Identificador único do produto     |
+| `store_id`     | UUID      | Referência à loja do produto       |
+| `name`         | TEXT      | Nome do produto                    |
+| `description`  | TEXT      | Descrição do produto               |
+| `buy_price`    | NUMERIC   | Preço de custo do produto          |
+| `retail_price` | NUMERIC   | Preço de venda do produto          |
+| `category`     | TEXT      | Categoria do produto               |
+| `created_at`   | TIMESTAMP | Data de criação do produto         |
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tabela `orders`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Coluna           | Tipo      | Descrição                         |
+|------------------|-----------|-----------------------------------|
+| `id`             | UUID      | Identificador único do pedido     |
+| `store_id`       | UUID      | Referência à loja do pedido       |
+| `product_id`     | UUID      | ID do produto comprado            |
+| `customer_email` | TEXT      | E-mail do cliente                 |
+| `quantity`       | INTEGER   | Quantidade adquirida              |
+| `total_price`    | NUMERIC   | Valor total da compra             |
+| `status`         | TEXT      | Status do pedido (ex: Pending)   |
+| `created_at`     | TIMESTAMP | Data de criação do pedido         |
+
+---
+
+### View `dynamic_orders`
+
+Essa view ajusta dinamicamente a data de criação dos pedidos com base em uma data de referência. É usada para garantir que haja dados disponíveis para visualização, independentemente da data de acesso ao dashboard.
+
+
+| Coluna           | Tipo      | Descrição                                     |
+|------------------|-----------|-----------------------------------------------|
+| `id`             | UUID      | ID do pedido                                 |
+| `product_id`     | UUID      | ID do produto                                |
+| `customer_email` | TEXT      | E-mail do cliente                            |
+| `quantity`       | INTEGER   | Quantidade                                   |
+| `total_price`    | NUMERIC   | Valor total                                  |
+| `status`         | TEXT      | Status do pedido                             |
+| `store_id`       | UUID      | ID da loja                                   |
+| `created_at`     | TIMESTAMP | Data ajustada com base na `date_reference`   |
+
+---
+
+## Configuração e Instalação
+
+1. Clone o repositório:
+   ```sh
+   git clone https://github.com/teixeiralc/e-comm-dashboard.git
+   ```
+2. Instale as dependências:
+   ```sh
+   cd e-comm-dashboard
+   npm install
+   ```
+3. Crie um arquivo `.env.local` e configure as variáveis de ambiente contidas no arquivo env.example.
+4. Inicie o servidor de desenvolvimento:
+   ```sh
+   npm run dev
+   ```
+
+## Contato
+
+Caso tenha alguma dúvida ou sugestão, entre em contato pelo e-mail **[lucascteixeira0@gmail.com](mailto\:lucascteixeira0@gmail.com)**.
