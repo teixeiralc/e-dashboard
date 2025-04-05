@@ -62,7 +62,7 @@ export default async function VendaIdPage({ params }: IVendaIdParams) {
 
   return (
     <section className="container">
-      <BaseCard className="h-[calc(100vh-4rem)] mt-8">
+      <BaseCard className="mt-8">
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -83,9 +83,11 @@ export default async function VendaIdPage({ params }: IVendaIdParams) {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="flex flex-col gap-6">
-          <h1 className="text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">{order.id}</h1>
+          <h1 className="text-2xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
+            {order.id}
+          </h1>
           <div className="max-w-120">
-            <ul className="mb-6">
+            <ul className="mb-6 space-y-3 sm:space-y-1">
               <li>
                 <span className="font-bold">Produto:</span> <p className="font-data inline-block">{product?.name}</p>
               </li>
@@ -110,7 +112,7 @@ export default async function VendaIdPage({ params }: IVendaIdParams) {
                 <p className="font-data inline-block">{orderFormattedDate}</p>
               </li>
             </ul>
-            <div className="flex gap-4 items-center">
+            <div className="flex flex-col min-[360px]:flex-row gap-2 min-[360px]:gap-4 items-center">
               <EditOrderStatus orderId={orderId} />
               <DeleteOrder orderId={orderId} />
             </div>

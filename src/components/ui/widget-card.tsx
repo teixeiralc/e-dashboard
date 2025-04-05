@@ -13,7 +13,9 @@ export default function WidgetCard({ className, children = '', legend, statusCol
   return (
     <div
       className={cn(
-        `w-full rounded-2xl drop-shadow-2xl ${legend ? 'px-6 py-8' : 'p-6'} text-zinc-900 border border-zinc-400 `,
+        `w-full rounded-2xl drop-shadow-2xl ${
+          legend ? 'px-2 py-6 lg:px-4 xl:px-6 xl:py-8' : 'p-2 lg:p-4 xl:p-6'
+        } text-zinc-900 border border-zinc-400 `,
         className,
       )}
       {...props}
@@ -22,7 +24,7 @@ export default function WidgetCard({ className, children = '', legend, statusCol
       {legend && statusColor && (
         <div className="absolute right-2 bottom-2 flex items-center justify-center gap-1">
           <StatusBullet status={statusColor} />
-          <h3 className="font-data text-zinc-900 uppercase text-mono tracking-tight ">{legend}</h3>
+          <h3 className="font-data text-zinc-900 uppercase tracking-tight text-xs sm:text-sm xl:text-base">{legend}</h3>
         </div>
       )}
     </div>

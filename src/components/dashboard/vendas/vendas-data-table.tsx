@@ -60,7 +60,7 @@ export function DataTable<TData, TValue>({ columns, data, pageSize = 11 }: DataT
         />
       </div>
       <div className="rounded-md border border-zinc-300">
-        <Table className="table-fixed w-full">
+        <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>

@@ -73,8 +73,10 @@ export default function AddOrder({ products }: { products: { id: string; name: s
 
   return (
     <div>
-      <h1 className="text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">Adicionar Venda</h1>
-      <p className="font-body text-zinc-700">Preencha todos os campos abaixo.</p>
+      <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
+        Adicionar Venda
+      </h1>
+      <p className="font-body text-zinc-700 text-sm sm:text-base">Preencha todos os campos abaixo.</p>
       <form action={action} className="flex flex-col gap-2 mt-4 max-w-lg text-zinc-700 font-body text-base">
         <Popover open={open} onOpenChange={setOpen}>
           <PopoverTrigger asChild>

@@ -75,7 +75,7 @@ export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
 
   return (
     <section className="container">
-      <BaseCard className="h-[calc(100vh-4rem)] mt-8">
+      <BaseCard className="mt-4 sm:mt-8">
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
             <BreadcrumbItem>
@@ -96,11 +96,11 @@ export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
           </BreadcrumbList>
         </Breadcrumb>
         <div className="flex flex-col gap-6">
-          <h1 className="text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
             {formattedProduct.name}
           </h1>
           <div className="max-w-120">
-            <p className="text-xl text-zinc-900 mb-4 text-wrap">{formattedProduct.description}</p>
+            <p className="text-lg sm:text-xl text-zinc-900 mb-4 text-wrap">{formattedProduct.description}</p>
             <ul className="mb-6">
               <li>
                 Categoria: <p className="font-data inline-block">{formattedProduct.category}</p>
@@ -155,7 +155,7 @@ export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
                 </div>
               )}
             </ul>
-            <div className="flex gap-4 items-center">
+            <div className="flex flex-col min-[360px]:flex-row gap-2 min-[360px]:gap-4 items-center">
               <EditProduct productId={productId} />
               <DeleteProduct productId={formattedProduct.id} productName={formattedProduct.name} />
             </div>

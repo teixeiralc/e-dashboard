@@ -50,7 +50,7 @@ export default function AddProduct({ children }: { children?: ReactNode }) {
       <DialogTrigger asChild>
         {children ? children : <Button className="hover:text-teal-400 text-base font-body">Adicionar Produto</Button>}
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px] relative">
+      <DialogContent className="rounded-2xl max-w-[300px] sm:max-w-[400px] relative">
         <DialogHeader>
           <DialogTitle>Adicionar produto</DialogTitle>
           <DialogDescription>Preencha todos os campos abaixo.</DialogDescription>

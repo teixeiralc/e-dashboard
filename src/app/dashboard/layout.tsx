@@ -12,7 +12,7 @@ export default async function DashboardLayout({
 
   if (!data || !data.user) redirect('/login')
   return (
-    <div className="grid grid-cols-[350px_auto] mx-8 gap-11">
+    <div className="md:grid md:grid-cols-[200px_auto] min-[824px]:grid-cols-[250px_auto] lg:grid-cols-[350px_auto] mx-4 sm:mx-8 gap-6 lg:gap-11">
       <SideMenu />
       {children}
     </div>

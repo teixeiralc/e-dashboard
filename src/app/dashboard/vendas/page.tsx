@@ -17,7 +17,7 @@ export async function generateMetadata() {
 
 export default async function VendasPage() {
   const startDate = new Date('01/01/2023').toISOString().split('T')[0] as string
-  const endDate = new Date('01/01/2029').toISOString().split('T')[0] as string
+  const endDate = new Date('01/01/2040').toISOString().split('T')[0] as string
 
   const { data: orders, ok, error } = await getOrders(startDate, endDate)
   const { data: products } = await getProductsId()
@@ -60,8 +60,8 @@ export default async function VendasPage() {
   return (
     <main className="container flex flex-col gap-8">
       <section>
-        <BaseCard className="mt-8 flex flex-col gap-16">
-          <h1 className="text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">Vendas</h1>
+        <BaseCard className="mt-8 flex-col gap-4 sm:gap-8 flex xl:flex-row xl:gap-24">
+          <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">Vendas</h1>
           <div className="flex items-center justify-end gap-2">
             <ExportToExcel<IFormattedOrder> data={formattedOrders} fileName="Vendas" />
             <Link

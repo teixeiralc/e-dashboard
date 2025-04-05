@@ -18,7 +18,7 @@ export default function RootLayout({
     <html lang="pt-BR" suppressHydrationWarning>
       <body
         suppressHydrationWarning
-        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${montserrat.variable} bg-zinc-800 antialiased container font-body`}
+        className={`${ibmPlexMono.variable} ${spaceGrotesk.variable} ${montserrat.variable} bg-zinc-800 antialiased font-body xl:container m-[0_auto]`}
       >
         <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
           {children}

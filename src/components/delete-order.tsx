@@ -32,7 +32,7 @@ export default function DeleteOrder({ orderId }: { orderId: string }) {
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" className="text-base">
+        <Button variant="destructive" className="text-sm sm:text-base">
           Deletar Venda
         </Button>
       </AlertDialogTrigger>

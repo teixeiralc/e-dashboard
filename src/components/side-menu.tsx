@@ -23,67 +23,67 @@ export default function SideMenu() {
   }
 
   return (
-    <section className="container sticky top-0 h-screen">
-      <div className="mt-8 bg-white p-8 rounded-2xl flex flex-col h-[calc(100vh-4rem)] drop-shadow-2xl">
+    <section className="container md:sticky md:top-0 md:h-screen">
+      <div className="mt-4 sm:mt-8 bg-white p-4 lg:p-8 rounded-2xl flex flex-col md:h-[calc(100vh-4rem)] drop-shadow-2xl">
         <div className="self-center">
-          <h1 className="font-title text-zinc-900 text-4xl drop-shadow-md">e-Dashboard</h1>
+          <h1 className="font-title text-zinc-900 text-2xl lg:text-3xl drop-shadow-md">e-Dashboard</h1>
         </div>
         <Separator className="my-4 drop-shadow-md bg-zinc-300" />
         <nav className="flex-[1]">
-          <ul className="flex flex-col items-start gap-4">
+          <ul className="flex flex-col items-start gap-2 sm:gap-4 text-lg lg:text-2xl">
             <li className="w-full">
               <Link
                 href={'/dashboard'}
                 className={cn(
-                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  `flex items-center gap-2 lg:gap-3 font-body tracking-tight text-zinc-900 hover:text-teal-800`,
                   pathname === '/dashboard' && 'text-teal-800',
                 )}
               >
-                <LayoutDashboard /> Dashboard
+                <LayoutDashboard className="h-5 w-5 lg:h-6 lg:w-6" /> Dashboard
               </Link>
             </li>
             <li className="w-full">
               <Link
                 href={'/dashboard/produtos'}
                 className={cn(
-                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  `flex items-center gap-2 lg:gap-3 font-body tracking-tight text-zinc-900 hover:text-teal-800`,
                   pathname.includes('/dashboard/produtos') && 'text-teal-800',
                 )}
               >
-                <PackageSearch /> Produtos
+                <PackageSearch className="h-5 w-5 lg:h-6 lg:w-6" /> Produtos
               </Link>
             </li>
             <li className="w-full">
               <Link
                 href={'/dashboard/vendas'}
                 className={cn(
-                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  `flex items-center gap-2 lg:gap-3 font-body tracking-tight text-zinc-900 hover:text-teal-800`,
                   pathname.includes('/dashboard/vendas') && 'text-teal-800',
                 )}
               >
-                <CircleDollarSign /> Vendas
+                <CircleDollarSign className="h-5 w-5 lg:h-6 lg:w-6" /> Vendas
               </Link>
             </li>
             <li className="w-full">
               <Link
                 href={'/dashboard/estatisticas'}
                 className={cn(
-                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  `flex items-center gap-2 lg:gap-3 font-body tracking-tight text-zinc-900 hover:text-teal-800`,
                   pathname.includes('/dashboard/estatisticas') && 'text-teal-800',
                 )}
               >
-                <ChartArea /> Estatísticas
+                <ChartArea className="h-5 w-5 lg:h-6 lg:w-6" /> Estatísticas
               </Link>
             </li>
             <li className="w-full">
               <Link
                 href={'/dashboard/informacoes'}
                 className={cn(
-                  `flex items-center gap-3 font-body text-2xl tracking-tight text-zinc-900 hover:text-teal-800`,
+                  `flex items-center gap-2 lg:gap-3 font-body tracking-tight text-zinc-900 hover:text-teal-800`,
                   pathname.includes('/dashboard/informacoes') && 'text-teal-800',
                 )}
               >
-                <Info /> Informações
+                <Info className="h-5 w-5 lg:h-6 lg:w-6" /> Informações
               </Link>
             </li>
           </ul>
@@ -91,8 +91,8 @@ export default function SideMenu() {
         <div>
           <Separator className="my-4 drop-shadow-md bg-zinc-300" />
           <Button
-            className="font-body text-2xl text-zinc-900 flex items-center hover:text-teal-800"
-            variant={'ghost'}
+            className="font-body text-lg lg:text-2xl text-zinc-900 flex items-center hover:text-teal-800"
+            variant={null}
             onClick={handleLogout}
           >
             Sair <SairIcon />

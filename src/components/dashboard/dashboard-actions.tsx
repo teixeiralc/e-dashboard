@@ -12,7 +12,7 @@ export default function DashboardActions() {
       <AddProduct>
         <button className="uppercase text-zinc-900 font-body text-xs flex flex-col items-center justify-center gap-2 cursor-pointer">
           <div className="p-4 bg-teal-700 hover:bg-teal-900 ease-in-out duration-200 rounded-xl relative">
-            <PackageSearch className="text-teal-300 h-10 w-10" />
+            <PackageSearch className="text-teal-300 h-8 w-8 xl:h-10 xl:w-10" />
             <span className="absolute right-[5px] bottom-1">
               <PlusIcon />
             </span>
@@ -28,7 +28,7 @@ export default function DashboardActions() {
         className="uppercase text-zinc-900 font-body text-xs flex flex-col items-center justify-center gap-2"
       >
         <div className="p-4 bg-teal-700 hover:bg-teal-900 ease-in-out duration-200 rounded-xl relative">
-          <CircleDollarSign className="text-teal-300 h-10 w-10" />
+          <CircleDollarSign className="text-teal-300 h-8 w-8 xl:h-10 xl:w-10" />
           <span className="absolute right-[5px] bottom-1">
             <PlusIcon />
           </span>

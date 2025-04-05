@@ -35,18 +35,18 @@ export default async function DashboardPage({ searchParams }: ISearchParamsProps
   )
 
   return (
-    <main className="container flex flex-col gap-8">
+    <main className="container flex flex-col gap-4 sm:gap-8">
       <section>
-        <BaseCard className="mt-8 flex flex-col gap-16">
+        <BaseCard className="mt-4 sm:mt-8 flex flex-col gap-8 xl:gap-16">
           <DashboardSales totalSalesByStatus={totalSalesByStatus} />
-          <div className="flex gap-8 justify-evenly">
+          <div className="flex flex-col xl:flex-row gap-4 xl:gap-8 justify-evenly">
             <DashboardDateFilter />
             <DashboardActions />
           </div>
         </BaseCard>
       </section>
       <section>
-        <BaseCard className="h-[450px]">
+        <BaseCard>
           <DashboardSalesLineGraph orders={orders} />
         </BaseCard>
       </section>

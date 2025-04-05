@@ -59,12 +59,12 @@ export default function EditProduct({ productId }: { productId: string }) {
   return (
     <Dialog open={open} onOpenChange={setOpen}>
       <DialogTrigger asChild>
-        <Button variant={'outline'} className="text-base">
+        <Button variant={'outline'} className="text-sm sm:text-base">
           Editar
           <SquarePen className="h-4 w-4" />
         </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[400px] relative">
+      <DialogContent className="rounded-xl max-w-[300px] sm:max-w-[400px] relative">
         <DialogHeader>
           <DialogTitle>Editar produto</DialogTitle>
           <DialogDescription>Preencha os campos que deseja editar.</DialogDescription>

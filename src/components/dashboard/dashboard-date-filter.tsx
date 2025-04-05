@@ -41,17 +41,17 @@ export default function DashboardDateFilter() {
   }, [date, paramsEndDate, paramsStartDate, router])
 
   return (
-    <WidgetCard className="flex flex-col gap-6">
-      <div className="flex items-center justify-between gap-4">
-        <p className="font-body text-base text-zinc-900">Selecione um período</p>
-        <div className="bg-zinc-900 w-0.5 h-3.5" />
+    <WidgetCard className="flex flex-col gap-4 xl:gap-6">
+      <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
+        <p className="font-body text-sm xl:text-base text-zinc-900">Selecione um período</p>
+        <div className="bg-zinc-900 w-0.5 h-3.5 hidden sm:block" />
         <Popover>
           <PopoverTrigger asChild>
             <Button
               id="date"
               variant={'outline'}
               className={cn(
-                'w-[300px] justify-start text-left font-normal',
+                'max-w-[300px] justify-start text-left font-normal',
                 !date && 'text-muted-foreground border-teal-800',
               )}
             >
@@ -90,17 +90,17 @@ export default function DashboardDateFilter() {
           </PopoverContent>
         </Popover>
       </div>
-      <div className="flex justify-evenly gap-8 text-sm">
-        <Button className="w-20 hover:text-teal-400" onClick={() => updateSearchDate(60)}>
+      <div className="flex justify-evenly gap-2 sm:gap-4 xl:gap-8 flex-wrap">
+        <Button className="w-20 hover:text-teal-400 text-xs sm:text-sm" onClick={() => updateSearchDate(60)}>
           60 DIAS
         </Button>
-        <Button className="w-20 hover:text-teal-400" onClick={() => updateSearchDate(30)}>
+        <Button className="w-20 hover:text-teal-400 text-xs sm:text-sm" onClick={() => updateSearchDate(30)}>
           30 DIAS
         </Button>
-        <Button className="w-20 hover:text-teal-400" onClick={() => updateSearchDate(7)}>
+        <Button className="w-20 hover:text-teal-400 text-xs sm:text-sm" onClick={() => updateSearchDate(7)}>
           07 DIAS
         </Button>
-        <Button className="w-20 hover:text-teal-400" onClick={() => updateSearchDate(0)}>
+        <Button className="w-20 hover:text-teal-400 text-xs sm:text-sm" onClick={() => updateSearchDate(0)}>
           HOJE
         </Button>
       </div>

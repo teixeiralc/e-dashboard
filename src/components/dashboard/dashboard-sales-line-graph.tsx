@@ -62,13 +62,13 @@ export default function DashboardSalesLineGraph({ orders }: { orders: IFrontPage
       : `${sortedChartOrdersData[0].date} - ${sortedChartOrdersData[sortedChartOrdersData.length - 1].date}`
 
   return (
-    <Card className="max-h-[calc(450px-4rem)]">
+    <Card className="text-sm sm:text-base">
       <CardHeader>
         <CardTitle>Vendas por dia</CardTitle>
         <CardDescription>{filteredDateTitle}</CardDescription>
       </CardHeader>
       <CardContent>
-        <ChartContainer config={chartConfig} className="min-h-[200px] max-h-[280px] w-full">
+        <ChartContainer config={chartConfig} className="max-h-[280px] w-full">
           <LineChart
             accessibilityLayer
             data={sortedChartOrdersData}

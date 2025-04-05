@@ -32,7 +32,7 @@ export default function DeleteProduct({ productId, productName }: { productId: s
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive" className="text-base">
+        <Button variant="destructive" className="text-sm sm:text-base">
           Deletar Produto
         </Button>
       </AlertDialogTrigger>
