@@ -35,7 +35,35 @@ export default async function ProdutoIdPage({ params }: IProdutoIdParams) {
   const productId = productParams.id
 
   const { data: product } = await getProduct(productId)
-  if (!product) return <div>Produto não encontrado.</div>
+  if (!product)
+    return (
+      <main className="container">
+        <BaseCard className="mt-8">
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/dashboard">Dashboard</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/dashboard/produtos">Produtos</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>...</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          <h1 className="text-2xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
+            Produto não encontrado
+          </h1>
+        </BaseCard>
+      </main>
+    )
 
   const { data: ordersForProduct } = await getOrdersForProduct(productId)
 

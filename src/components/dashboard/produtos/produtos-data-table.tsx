@@ -49,7 +49,7 @@ export function DataTable<TData, TValue>({ columns, data, pageSize = 11 }: DataT
   })
 
   return (
-    <div className="font-body">
+    <div className="font-body flex flex-col min-[1250px]:block">
       <div className="flex items-center py-4">
         <Input
           placeholder="Pesquise por um produto..."
@@ -58,7 +58,7 @@ export function DataTable<TData, TValue>({ columns, data, pageSize = 11 }: DataT
           className="max-w-sm"
         />
       </div>
-      <div className="rounded-md border border-zinc-300">
+      <div className="rounded-md border border-zinc-300 max-w-full min-[768px]:max-w-[400px] min-[850px]:max-w-[500px] min-[1250px]:max-w-[700px] min-[1500px]:max-w-full max-[1250px]:self-center">
         <Table>
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

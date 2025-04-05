@@ -33,7 +33,7 @@ export default function PerdeuForm() {
   }
 
   return (
-    <form action={sendResetPassword} className="flex flex-col gap-4 w-80">
+    <form action={sendResetPassword} className="flex flex-col gap-2 min-[400px]:gap-4 w-60 sm:w-80">
       <div>
         <Label htmlFor="email" className="mb-1">
           E-mail -

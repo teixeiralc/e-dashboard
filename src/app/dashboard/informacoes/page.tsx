@@ -13,7 +13,7 @@ export default function InformacoesPage() {
     <main>
       <BaseCard className="mt-4 sm:mt-8">
         <div className="max-w-3xl mb-16">
-          <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
+          <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md mb-8">
             Informações
           </h1>
           <h2 className="text-xl sm:text-2xl text-zinc-900 font-bold uppercase font-title drop-shadow-md mb-2">

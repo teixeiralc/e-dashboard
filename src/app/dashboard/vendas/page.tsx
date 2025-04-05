@@ -60,7 +60,7 @@ export default async function VendasPage() {
   return (
     <main className="container flex flex-col gap-8">
       <section>
-        <BaseCard className="mt-8 flex-col gap-4 sm:gap-8 flex xl:flex-row xl:gap-24">
+        <BaseCard className="mt-8 flex flex-col gap-4 sm:gap-8 xl:gap-12">
           <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">Vendas</h1>
           <div className="flex items-center justify-end gap-2">
             <ExportToExcel<IFormattedOrder> data={formattedOrders} fileName="Vendas" />
@@ -73,7 +73,7 @@ export default async function VendasPage() {
           </div>
         </BaseCard>
       </section>
-      <section className="h-full mb-8">
+      <section className="mb-8 h-full">
         <BaseCard className="h-full">
           {formattedOrders ? (
             <DataTable columns={ordersColumns} data={formattedOrders} />

@@ -25,11 +25,11 @@ export default async function ProdutosPage() {
   return (
     <main className="container flex flex-col gap-8">
       <section>
-        <BaseCard className="mt-8 flex-col gap-4 sm:gap-8 flex xl:flex-row xl:gap-24">
+        <BaseCard className="mt-8 flex flex-col gap-4 sm:gap-8 xl:gap-12">
           <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">Produtos</h1>
           <div className="flex items-center justify-end gap-2">
             <ExportToExcel<IProduct> data={data} fileName="Produtos" />
-          <AddProduct />
+            <AddProduct />
           </div>
         </BaseCard>
       </section>

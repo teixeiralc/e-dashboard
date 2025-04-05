@@ -30,7 +30,6 @@ export const productColumns: ColumnDef<IProduct>[] = [
         </Link>
       )
     },
-    size: 250,
   },
   {
     accessorKey: 'buy_price',
@@ -53,7 +52,6 @@ export const productColumns: ColumnDef<IProduct>[] = [
 
       return <div>{formatted}</div>
     },
-    size: 150,
   },
   {
     accessorKey: 'retail_price',
@@ -76,7 +74,6 @@ export const productColumns: ColumnDef<IProduct>[] = [
 
       return <div>{formatted}</div>
     },
-    size: 150,
   },
   {
     accessorKey: 'stock',
@@ -90,7 +87,6 @@ export const productColumns: ColumnDef<IProduct>[] = [
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
-    size: 120,
   },
   {
     accessorKey: 'category',
@@ -104,7 +100,6 @@ export const productColumns: ColumnDef<IProduct>[] = [
         <ArrowUpDown className="ml-2 h-4 w-4" />
       </Button>
     ),
-    size: 180,
   },
   {
     accessorKey: 'created_at',
@@ -123,6 +118,5 @@ export const productColumns: ColumnDef<IProduct>[] = [
       const formatted = format(new Date(createdAt), 'dd/MMM/yyyy', { locale: ptBR })
       return <div>{formatted}</div>
     },
-    size: 160,
   },
 ]

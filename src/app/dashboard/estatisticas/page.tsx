@@ -73,7 +73,7 @@ export default async function EstatisticasPage() {
   }
 
   return (
-    <main className="container flex flex-col gap-8 mt-8">
+    <main className="container flex flex-col gap-8">
       <section>
         <BaseCard className="mt-8 flex-col gap-4 sm:gap-8 flex xl:flex-row xl:gap-24">
           <h1 className="text-3xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">

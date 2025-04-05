@@ -22,7 +22,7 @@ export default function LoginPage() {
 
   return (
     <main className="flex items-center justify-center h-screen">
-      <div className="flex flex-col bg-white rounded-2xl p-12 items-center justify-center gap-20">
+      <div className="flex flex-col bg-white rounded-2xl p-6 min-[450px]:p-12 items-center justify-center gap-20">
         <h1 className="font-title font-bold text-4xl mt-12">e-Dashboard</h1>
         <LoginForm />
         <Link

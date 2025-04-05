@@ -23,8 +23,8 @@ export default async function ResetarPage({ searchParams }: IResetarPageParams) 
 
   return (
     <main className="flex items-center justify-center h-screen">
-      <div className="flex flex-col bg-white rounded-2xl p-12 items-center justify-center gap-20">
-        <h1 className="font-title font-bold text-4xl mt-12">Resete sua senha</h1>
+      <div className="flex flex-col bg-white rounded-2xl p-6 min-[450px]:p-12 items-center justify-center gap-20">
+        <h1 className="font-title font-bold text-3xl min-[500px]:text-4xl mt-12">Resete sua senha</h1>
         <ResetarForm token={token} email={email} type={type} />
         <p className="text-zinc-700 font-data text-xs self-start ">Obs.: As senhas precisam coincidir</p>
       </div>

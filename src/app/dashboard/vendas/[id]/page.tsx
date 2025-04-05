@@ -38,7 +38,35 @@ export default async function VendaIdPage({ params }: IVendaIdParams) {
   const orderId = productParams.id
 
   const { data: order } = await getOrder(orderId)
-  if (!order) return <div>Venda não encontrada.</div>
+  if (!order)
+    return (
+      <main className="container">
+        <BaseCard className="mt-8">
+          <Breadcrumb className="mb-6">
+            <BreadcrumbList>
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/dashboard">Dashboard</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbLink asChild>
+                  <Link href="/dashboard/vendas">Vendas</Link>
+                </BreadcrumbLink>
+              </BreadcrumbItem>
+              <BreadcrumbSeparator />
+              <BreadcrumbItem>
+                <BreadcrumbPage>...</BreadcrumbPage>
+              </BreadcrumbItem>
+            </BreadcrumbList>
+          </Breadcrumb>
+          <h1 className="text-2xl sm:text-5xl text-zinc-900 font-bold uppercase font-title drop-shadow-md">
+            Venda não encontrada
+          </h1>
+        </BaseCard>
+      </main>
+    )
 
   const { data: product } = await getProduct(order.product_id)
 
@@ -61,7 +89,7 @@ export default async function VendaIdPage({ params }: IVendaIdParams) {
   const orderFormattedDate = format(new Date(order.created_at), 'dd/MMM/yyyy', { locale: ptBR })
 
   return (
-    <section className="container">
+    <main className="container">
       <BaseCard className="mt-8">
         <Breadcrumb className="mb-6">
           <BreadcrumbList>
@@ -119,6 +147,6 @@ export default async function VendaIdPage({ params }: IVendaIdParams) {
           </div>
         </div>
       </BaseCard>
-    </section>
+    </main>
   )
 }

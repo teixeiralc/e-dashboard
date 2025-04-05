@@ -43,7 +43,7 @@ export default function DashboardDateFilter() {
   return (
     <WidgetCard className="flex flex-col gap-4 xl:gap-6">
       <div className="flex flex-col sm:flex-row items-center justify-between gap-2 sm:gap-4">
-        <p className="font-body text-sm xl:text-base text-zinc-900">Selecione um período</p>
+        <p className="font-body text-sm text-zinc-900">Selecione um período</p>
         <div className="bg-zinc-900 w-0.5 h-3.5 hidden sm:block" />
         <Popover>
           <PopoverTrigger asChild>

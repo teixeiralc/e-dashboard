@@ -36,7 +36,7 @@ export default function LoginForm() {
   }, [state])
 
   return (
-    <form action={action} className="flex flex-col gap-4 w-80">
+    <form action={action} className="flex flex-col gap-2 min-[400px]:gap-4 w-60 sm:w-80">
       <div>
         <Label htmlFor="email" className="mb-1">
           E-mail -
@@ -49,7 +49,7 @@ export default function LoginForm() {
         </Label>
         <Input type="password" id="password" name="password" required placeholder="@admin" />
       </div>
-      <div className="flex self-end gap-4">
+      <div className="flex flex-col-reverse min-[400px]:flex-row self-end gap-4">
         <Link
           href="/login/cadastrar"
           className="text-zinc-500 font-data text-xs underline self-start hover:text-teal-600"
