@@ -11,7 +11,7 @@ export default async function LoginCadastrarPage() {
         </Link>
         <h1 className="font-title font-bold text-4xl">Cadastre-se</h1>
         <SignUpForm />
-        <p className="text-zinc-700 font-data text-xs self-start max-w-64 min-[350px]:max-w-full">
+        <p className="text-zinc-700 font-data text-xs self-start max-w-64 min-[450px]:max-w-full">
           Obs.: Não será necessário confirmar o e-mail.
         </p>
       </div>
