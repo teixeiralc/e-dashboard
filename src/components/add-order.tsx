@@ -33,8 +33,11 @@ export default function AddOrder({ products }: { products: { id: string; name: s
   const [quantity, setQuantity] = useState('')
   const [status, setStatus] = useState('')
 
-  // products combobox
-  const [open, setOpen] = useState(false)
+  // combobox
+  const [openProducts, setOpenProducts] = useState(false)
+  const [openStatus, setOpenStatus] = useState(false)
+
+  const ORDER_STATUSES = ['Cancelado', 'Pendente', 'Enviado', 'Entregue']
 
   const [state, action] = useActionState(newOrder, {
     ok: false,
@@ -53,7 +56,8 @@ export default function AddOrder({ products }: { products: { id: string; name: s
       const { data } = await getProductClient(id)
       if (!data) return null
       const price = data.retail_price
-      setTotalPrice(String(price * parseInt(quantity)))
+      const totalPrice = (price * parseInt(quantity)).toFixed(2)
+      setTotalPrice(String(totalPrice))
     },
     [quantity, products],
   )
@@ -78,12 +82,12 @@ export default function AddOrder({ products }: { products: { id: string; name: s
       </h1>
       <p className="font-body text-zinc-700 text-sm sm:text-base">Preencha todos os campos abaixo.</p>
       <form action={action} className="flex flex-col gap-2 mt-4 max-w-lg text-zinc-700 font-body text-base">
-        <Popover open={open} onOpenChange={setOpen}>
+        <Popover open={openProducts} onOpenChange={setOpenProducts}>
           <PopoverTrigger asChild>
             <Button
               variant="outline"
               role="combobox"
-              aria-expanded={open}
+              aria-expanded={openProducts}
               className="w-full justify-between font-normal"
             >
               {productName
@@ -108,7 +112,7 @@ export default function AddOrder({ products }: { products: { id: string; name: s
                       value={product.name}
                       onSelect={(currentValue) => {
                         setProductName(currentValue === productName ? '' : currentValue)
-                        setOpen(false)
+                        setOpenProducts(false)
                       }}
                     >
                       {product.name}
@@ -152,15 +156,47 @@ export default function AddOrder({ products }: { products: { id: string; name: s
           value={totalPrice}
         />
         <input type="hidden" id="total_price" name="total_price" value={totalPrice} />
-        <Input
-          type="text"
-          id="status"
-          name="status"
-          required
-          placeholder="Cancelado | Pendente | Enviado | Entregue"
-          value={status}
-          onChange={({ target }) => setStatus(target.value)}
-        />
+        <Popover open={openStatus} onOpenChange={setOpenStatus}>
+          <PopoverTrigger asChild>
+            <Button
+              variant="outline"
+              role="combobox"
+              aria-expanded={openStatus}
+              className="w-full justify-between font-normal"
+            >
+              {status ? ORDER_STATUSES?.find((order) => order === status) : 'Selecione um status...'}
+              <ChevronsUpDown className="opacity-50" />
+            </Button>
+          </PopoverTrigger>
+          <PopoverContent className=" p-0">
+            <Command>
+              <CommandInput placeholder="Procure um status..." className="h-9" />
+              <CommandList>
+                <CommandEmpty>
+                  Nenhum status
+                  <br />
+                  encontrado.
+                </CommandEmpty>
+                <CommandGroup>
+                  {ORDER_STATUSES?.map((order) => (
+                    <CommandItem
+                      key={order}
+                      value={order}
+                      onSelect={(currentValue) => {
+                        setStatus(currentValue === status ? '' : currentValue)
+                        setOpenStatus(false)
+                      }}
+                    >
+                      {order}
+                      <Check className={cn('ml-auto', status === order ? 'opacity-100' : 'opacity-0')} />
+                    </CommandItem>
+                  ))}
+                </CommandGroup>
+              </CommandList>
+            </Command>
+          </PopoverContent>
+        </Popover>
+        <input type="hidden" id="status" name="status" value={status} />
         <FormButton />
       </form>
     </div>

@@ -39,6 +39,7 @@ export default async function newOrder(state: object, formData: FormData) {
 
     if (!productId || !customerEmail || !quantity || !status || !totalPrice)
       throw new Error('Preencha todos os dados do produto.')
+    if (quantity === '0') throw new Error('A quantidade deve ser maior que zero para cadastrar a venda.')
     if (!['cancelado', 'pendente', 'enviado', 'entregue'].includes(status.toLocaleLowerCase())) {
       throw new Error('O status deve ser "Cancelado", "Pendente", "Enviado" ou "Entregue"')
     } else {
