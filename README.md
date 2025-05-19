@@ -110,7 +110,7 @@ Essa view ajusta dinamicamente a data de criação dos pedidos com base em uma d
 
 1. Clone o repositório:
    ```sh
-   git clone https://github.com/teixeiralc/e-comm-dashboard.git
+   git clone https://github.com/teixeiralc/e-dashboard.git
    ```
 2. Instale as dependências:
    ```sh
